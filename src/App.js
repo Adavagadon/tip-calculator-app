@@ -33,11 +33,15 @@ const Tip = ({buttons, handleButton, handleTip}) => {
   )
 }
 
-const People = ({handler, value}) => {
+const People = ({handler, value, error}) => {
   return (
     <div>
-      <label htmlFor="people">Number of People</label>
-      <input className="people-text" type="number" name="people" id="people" step="1" onChange={handler} value={value} placeholder="0" />
+      <div className="people__container">
+        <label htmlFor="people">Number of People</label>
+        {error ? <label className="error" htmlFor='people'>Can't be zero</label> : ''}
+        
+      </div>
+      <input className={error ? "people-text error" : "people-text"} type="number" name="people" id="people" step="1" onChange={handler} value={value} placeholder="0" />
     </div>
   )
 }
@@ -90,6 +94,7 @@ const Calculator = () => {
   const [values, setValues] = useState(defaultValues);
   const [buttons, setButtons] = useState(buttonList);
   const [result, setResult] = useState({tip: `$0.00`, total: `$0.00`});
+  const [isError, setIsError] = useState(false);
 
   const handleButton = (id) => {
     const newList = buttons;
@@ -127,6 +132,14 @@ const Calculator = () => {
     }
   }
 
+  const isThereAnError = () => {
+    if(values.people == 0){
+      setIsError(true);
+    } else {
+      setIsError(false);
+    }
+  }
+
   const countResult = () => {
     if(values.bill * 1 > 0 && values.people * 1 > 0) {
       const {bill, tip, people} = values;
@@ -147,13 +160,14 @@ const Calculator = () => {
 
   useEffect(() => {
     countResult();
+    isThereAnError();
   }, [values, buttons]);
 
   return <main>
     <form onSubmit={e => e.preventDefault()}>
       <Bill handler={handleBill} value={values.bill}/>
       <Tip handleButton={handleButton} handleTip={handleTip} buttons={buttons}/>
-      <People handler={handlePeople} value={values.people}/>
+      <People handler={handlePeople} value={values.people} error={isError}/>
       <Result result={result} reset={reset}/>
     </form>
   </main>

@@ -11,6 +11,10 @@ body {
   background-color: #c5e4e7;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .logo {
   display: block;
   width: 90px;
@@ -47,6 +51,19 @@ form > div {
   gap: 5px;
 }
 
+form > div .people__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+form > div .people__container .error {
+  color: #e05252;
+}
+
 form label {
   font-size: 1rem;
   font-weight: 700;
@@ -74,6 +91,10 @@ form input {
   color: #00494d;
 }
 
+form input.error {
+  border: 2px solid #e05252;
+}
+
 form input::-webkit-input-placeholder {
   color: #5e7a7d;
 }
@@ -88,6 +109,10 @@ form input::-ms-input-placeholder {
 
 form input::placeholder {
   color: #5e7a7d;
+}
+
+form input:focus {
+  outline-color: #26c0ab;
 }
 
 form .grid {
@@ -111,6 +136,10 @@ form .grid button {
 form .grid button.active {
   background-color: #26c0ab;
   color: #00494d;
+}
+
+form .grid button:hover {
+  background-color: #26c0ab;
 }
 
 form .result {

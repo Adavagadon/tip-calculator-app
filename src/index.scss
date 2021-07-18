@@ -12,6 +12,10 @@ body {
   background-color: $light-grayish-cyan-1;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .logo {
   display: block;
   width: 90px;
@@ -35,6 +39,15 @@ form {
     display: flex;
     flex-direction: column;
     gap: 5px;
+
+    .people__container {
+      display: flex;
+      justify-content: space-between;
+
+      .error {
+        color: $red;
+      }
+    }
   }
 
   label {
@@ -63,8 +76,16 @@ form {
     text-align: right;
     color: $very-dark-cyan;
 
+    &.error {
+      border: 2px solid $red;
+    }
+
     &::placeholder {
       color: $dark-grayish-cyan-1;
+    }
+
+    &:focus {
+      outline-color: $strong-cyan;
     }
   }
 
@@ -85,6 +106,10 @@ form {
       &.active {
         background-color: $strong-cyan;
         color: $very-dark-cyan;
+      }
+
+      &:hover {
+        background-color: $strong-cyan;
       }
     }
   }
