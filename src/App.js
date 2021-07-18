@@ -48,7 +48,7 @@ const People = ({handler, value, error}) => {
 
 const Result = ({result, reset}) => {
   return (
-    <div className="result">
+    <>
 
       <div className="result__container">
 
@@ -78,19 +78,19 @@ const Result = ({result, reset}) => {
 
       <button onClick={reset}>RESET</button>
 
-    </div>
+    </>
   )
 }
 
 const Calculator = () => {
   const buttonList = [
-    {id: 0, isActive: true, value: 5},
+    {id: 0, isActive: false, value: 5},
     {id: 1, isActive: false, value: 10},
     {id: 2, isActive: false, value: 15},
     {id: 3, isActive: false, value: 25},
     {id: 4, isActive: false, value: 50},
   ];
-  const defaultValues = {bill: '', tip: 5, people: ''};
+  const defaultValues = {bill: '', tip: '', people: ''};
   const [values, setValues] = useState(defaultValues);
   const [buttons, setButtons] = useState(buttonList);
   const [result, setResult] = useState({tip: `$0.00`, total: `$0.00`});
@@ -165,10 +165,14 @@ const Calculator = () => {
 
   return <main>
     <form onSubmit={e => e.preventDefault()}>
-      <Bill handler={handleBill} value={values.bill}/>
-      <Tip handleButton={handleButton} handleTip={handleTip} buttons={buttons}/>
-      <People handler={handlePeople} value={values.people} error={isError}/>
-      <Result result={result} reset={reset}/>
+      <div className="form-container">
+        <Bill handler={handleBill} value={values.bill}/>
+        <Tip handleButton={handleButton} handleTip={handleTip} buttons={buttons}/>
+        <People handler={handlePeople} value={values.people} error={isError}/>
+      </div>
+      <div className="form-container result">
+        <Result result={result} reset={reset}/>
+      </div>
     </form>
   </main>
 }

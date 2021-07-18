@@ -40,7 +40,21 @@ form {
   gap: 25px;
 }
 
-form > div {
+form .form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 25px;
+  -webkit-box-flex: 100px;
+      -ms-flex: 100px;
+          flex: 100px;
+}
+
+form .form-container:not(.result) > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,7 +65,7 @@ form > div {
   gap: 5px;
 }
 
-form > div .people__container {
+form .form-container:not(.result) > div .people__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,7 +74,7 @@ form > div .people__container {
           justify-content: space-between;
 }
 
-form > div .people__container .error {
+form .form-container:not(.result) > div .people__container .error {
   color: #e05252;
 }
 
@@ -81,7 +95,6 @@ form .people-text {
 }
 
 form input {
-  padding: 0 0.5em;
   border: none;
   border-radius: 5px;
   background-color: #f4fafa;
@@ -118,9 +131,10 @@ form input:focus {
 form .grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (48%)[2];
-      grid-template-columns: repeat(2, 48%);
-  gap: 4%;
+  -ms-grid-columns: (49%)[2];
+      grid-template-columns: repeat(2, 49%);
+  width: 100%;
+  gap: 1em;
 }
 
 form .grid button {
@@ -190,5 +204,55 @@ form .result button {
   font-size: 1.5rem;
   font-weight: 700;
   color: #00494d;
+}
+
+form .result button:hover {
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
+}
+
+@media (min-width: 850px) {
+  .logo {
+    padding: 10vh 0;
+  }
+  main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    max-width: 850px;
+    margin: 0 auto;
+  }
+  form {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+}
+
+@media (min-width: 1000px) {
+  main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  form .grid {
+    -ms-grid-columns: (30.5%)[3];
+        grid-template-columns: repeat(3, 30.5%);
+  }
+  form .result {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 /*# sourceMappingURL=index.css.map */

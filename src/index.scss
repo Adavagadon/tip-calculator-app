@@ -35,17 +35,24 @@ form {
   flex-direction: column;
   gap: 25px;
 
-  & > div {
+  .form-container {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 25px;
+    flex: 100px;
 
-    .people__container {
+    &:not(.result) > div {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 5px;
 
-      .error {
-        color: $red;
+      .people__container {
+        display: flex;
+        justify-content: space-between;
+
+        .error {
+          color: $red;
+        }
       }
     }
   }
@@ -67,7 +74,6 @@ form {
   }
 
   input {
-    padding: 0 0.5em;
     border: none;
     border-radius: 5px;
     background-color: $light-grayish-cyan-2;
@@ -91,8 +97,9 @@ form {
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(2, 48%);
-    gap: 4%;
+    grid-template-columns: repeat(2, 49%);
+    width: 100%;
+    gap: 1em;
 
     button {
       font-size: 1.5rem;
@@ -153,6 +160,55 @@ form {
       font-size: 1.5rem;
       font-weight: 700;
       color: $very-dark-cyan;
+
+      &:hover {
+        filter: brightness(1.2);
+      }
+    }
+  }
+}
+
+@media (min-width: 850px) {
+  .logo {
+    padding: 10vh 0;
+  }
+
+  main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  form {
+    flex-direction: row;
+    align-items: stretch;
+
+    .result {
+      //justify-content: space-between;
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  form {
+    .grid {
+      grid-template-columns: repeat(3, 30.5%);
+    }
+
+    .result {
+      justify-content: space-between;
     }
   }
 }
