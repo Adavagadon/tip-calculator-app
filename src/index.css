@@ -1,6 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 * {
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Space Mono";
+}
+
+body {
+  font-size: 10px;
+  background-color: #c5e4e7;
+}
+
+.logo {
+  display: block;
+  width: 90px;
+  margin: 0 auto;
+  padding: 4em 0;
+}
+
+main {
+  background-color: white;
+  border-radius: 15px;
+  width: 100%;
+}
+
+form {
+  padding: 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 25px;
+}
+
+form > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+}
+
+form label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #5e7a7d;
+}
+
+form .bill-text {
+  background: url(images/icon-dollar.svg) no-repeat 15px center;
+  background-color: #f4fafa;
+}
+
+form .people-text {
+  background: url(images/icon-person.svg) no-repeat 15px center;
+  background-color: #f4fafa;
+}
+
+form input {
+  padding: 0 0.5em;
+  border: none;
+  border-radius: 5px;
+  background-color: #f4fafa;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: right;
+  color: #00494d;
+}
+
+form input::-webkit-input-placeholder {
+  color: #5e7a7d;
+}
+
+form input:-ms-input-placeholder {
+  color: #5e7a7d;
+}
+
+form input::-ms-input-placeholder {
+  color: #5e7a7d;
+}
+
+form input::placeholder {
+  color: #5e7a7d;
+}
+
+form .grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (48%)[2];
+      grid-template-columns: repeat(2, 48%);
+  gap: 4%;
+}
+
+form .grid button {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.25em 0;
+  background-color: #00494d;
+}
+
+form .grid button.active {
+  background-color: #26c0ab;
+  color: #00494d;
+}
+
+form .result {
+  background-color: #00494d;
+  border-radius: 15px;
+  padding: 3em;
+  gap: 2em;
+}
+
+form .result__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form .result__text {
+  font-weight: 700;
+}
+
+form .result__text--main {
+  color: white;
+  font-size: 1rem;
+}
+
+form .result__text--secondary {
+  color: #7f9c9f;
+  font-size: 0.8rem;
+}
+
+form .result__number {
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: #26c0ab;
+  position: relative;
+}
+
+form .result button {
+  padding: 0.25em;
+  border: none;
+  border-radius: 5px;
+  background-color: #26c0ab;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00494d;
 }
 /*# sourceMappingURL=index.css.map */

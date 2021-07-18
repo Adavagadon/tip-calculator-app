@@ -1,4 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import "variables";
+
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: "Space Mono";
+}
+
+body {
+  font-size: 10px;
+  background-color: $light-grayish-cyan-1;
+}
+
+.logo {
+  display: block;
+  width: 90px;
+  margin: 0 auto;
+  padding: 4em 0;
+}
+
+main {
+  background-color: $white;
+  border-radius: 15px;
+  width: 100%;
+}
+
+form {
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $dark-grayish-cyan-1;
+  }
+
+  .bill-text {
+    background: url(images/icon-dollar.svg) no-repeat 15px center;
+    background-color: $light-grayish-cyan-2;
+  }
+
+  .people-text {
+    background: url(images/icon-person.svg) no-repeat 15px center;
+    background-color: $light-grayish-cyan-2;
+  }
+
+  input {
+    padding: 0 0.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: $light-grayish-cyan-2;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: right;
+    color: $very-dark-cyan;
+
+    &::placeholder {
+      color: $dark-grayish-cyan-1;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 48%);
+    gap: 4%;
+
+    button {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $white;
+      border: none;
+      border-radius: 5px;
+      padding: 0.25em 0;
+      background-color: $very-dark-cyan;
+
+      &.active {
+        background-color: $strong-cyan;
+        color: $very-dark-cyan;
+      }
+    }
+  }
+
+  .result {
+    background-color: $very-dark-cyan;
+    border-radius: 15px;
+    padding: 3em;
+    gap: 2em;
+
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__text {
+      font-weight: 700;
+      &--main {
+        color: $white;
+        font-size: 1rem;
+      }
+      &--secondary {
+        color: $dark-grayish-cyan-2;
+        font-size: 0.8rem;
+      }
+    }
+
+    &__number {
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: $strong-cyan;
+      position: relative;
+    }
+
+    button {
+      padding: 0.25em;
+      border: none;
+      border-radius: 5px;
+      background-color: $strong-cyan;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $very-dark-cyan;
+    }
+  }
 }
